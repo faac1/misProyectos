@@ -1,0 +1,124 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Etiquetas <meta> obligatorias para Bootstrap -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Enlazando el CSS de Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Grupo Cero</title>
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+  <link rel="stylesheet" href="{% static 'css/subir.css' %}">
+</head>
+<body>
+  <!-- Opcional: enlazando el JavaScript de Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" 
+  integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" 
+  integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+  <div class="container p-0 ">
+        <div class="text-center col-md-12 col-xs  ">
+            <p class="fs-5 fw-bold text-success">conectado</p>
+        </div>
+        <div class="text-center col-md-12 col-xs">
+          <a href="{% url 'index2' %}"><img src="{% static 'logo/grupo0.jpg' %}" class="rounded" alt="logo" width="200px" height="200px"></a>
+        </div>
+    </div>
+
+    <div class="container bg-dark p-0">
+      <div id="header-all">
+        <header>
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container col-md-12 col-xs">
+                <a class="navbar-brand text-white" href="{% url 'index2' %}">Grupo Cero</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="bg-warning navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="{% url 'obras' %}">Categorias</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'subir' %}">Subir</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white ">Mensajes</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search"> 
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <a href="{% url 'rw' %}">
+                    <button class="text-white btn btn-outline-success" type="button">Buscar</button>
+                  </a>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </header>
+      </div>
+
+      
+
+        <div class="col-md-12 col-xs"></div>
+        <h1 class="text-center text-white">Mensajes</h1>
+          <form id="formulario_subir" class="text-white">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo aquí"><br>
+            <label for="tipo_solicitud">Tipo de solicitud:</label>
+            <select id="tipo_solicitud" name="tipo_solicitud">
+              <option value="">--Selecciona una opción--</option>
+              <option value="reclamo">Reclamo</option>
+              <option value="sugerencia">Sugerencia</option>
+              <option value="venta">Venta</option>
+              <option value="otro">Otro</option>
+            </select><br>
+
+            <label for="mensaje">Mensaje</label><br>
+            <textarea name="mensaje" id="mensaje" cols="65" rows="15"></textarea><br>
+      
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha"><br>
+      
+            <label for="telefono">Teléfono (sin codigo de area):</label>
+            <input type="number" id="telefono" name="telefono"><br>
+      
+            <label>categorias :</label><br>
+            <input type="checkbox" id="escultura" name="categorias" value="escultura">
+            <label for="escultura">Escultura</label><br>
+            <input type="checkbox" id="pinturas" name="categorias" value="pinturas">
+            <label for="pinturas">Pinturas</label><br>
+            <input type="checkbox" id="tejidos" name="categorias" value="tejidos">
+            <label for="tejidos">Tejidos</label><br>
+            <input type="checkbox" id="orfebrería" name="categorias" value="orfebrería">
+            <label for="orfebrería">Orfebrería</label><br>
+            <input type="checkbox" id="Otro" name="categorias" value="Otro">
+            <label for="Otro">Otro</label><br><br>
+      
+            <label>seleccionar:</label><br>
+            <input type="radio" id="venta" name="seleccionar" value="venta">
+            <label for="venta">Venta</label><br>
+            <input type="radio" id="intercambio" name="seleccionar" value="intercambio">
+            <label for="intercambio">Intercambio</label><br>
+            <input type="radio" id="donacion" name="seleccionar" value="donacion">
+            <label for="donacion">Donacion</label><br> 
+            <input type="radio" id="otro" name="seleccionar" value="otro">
+            <label for="otro">Otro</label><br><br>
+      
+            <button type="button" name ="enviar" id="enviar">Enviar</button>
+          </form>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="{% static 'js/forminicioses.js' %}"></script>
+</body>
+</html>

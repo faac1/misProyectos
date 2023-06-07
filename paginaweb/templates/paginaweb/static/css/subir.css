@@ -1,0 +1,57 @@
+
+/* Estilo general del formulario */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilo de los campos de texto */
+  input[type="text"], input[type="date"], input[type="number"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  /* Estilo de la lista de valores */
+  select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  /* Estilo de los checkboxes */
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  /* Estilo de los radio buttons */
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  /* Estilo del botón de envío */
+  button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Estilo del error */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
