@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Editar Mensajes</h1>
+    <br>
+
+    <button type="button">
+        <a href="{% url 'subir'%}"> Agregar</a>
+    </button>
+
+    <div id="idMensajes">
+        {% if mensaje %}
+            {{mensaje}}
+        {% endif %}
+    </div>
+
+    <table>
+        {% if subir %}
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Tipo solicitud</th>
+        <th>Eliminar</th>
+        <th>Modificar</th>
+        {% for x in subir %}
+            <tr>
+                <td>{{x.id_subir}}
+                <td>{{x.nombre}}
+                <td>{{x.id_tipo_solicitud}}
+ 
+            </tr>
+        {% endfor %}
+    {% endif %}        
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $("#idmensajes").delay(2000).fadeOut("slow") 
+        });
+    </script>
+
+
+
+
+
+
+</body>
+</html>

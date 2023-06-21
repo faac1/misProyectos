@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Tipo_solicitud, Subir
 
 
 def index(request):
@@ -50,7 +51,9 @@ def pinturas(request):
     return render(request,'paginaweb/pag_inicio/pinturas.html',context)
 
 def subir(request):
-    context={}
+    if request.method is not "POST":
+        tipo_solicitud = Tipo_solicitud.objects.all()
+        context = {"tipo_solicitud":tipo_solicitud}
     return render(request,'paginaweb/pag_inicio/subir.html',context)
 
 def tejidos(request):
@@ -84,3 +87,8 @@ def tejidohuaso(request):
 def tejidomapuche(request):
     context={}
     return render(request,'paginaweb/pag_tejidos/tejidomapuche.html',context)
+
+def crud(request):
+    subir= Subir.objects.all()
+    context={"subir":subir}
+    return render(request,'paginaweb/mens_list.html',context)

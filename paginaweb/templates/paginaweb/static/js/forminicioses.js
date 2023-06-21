@@ -79,14 +79,16 @@ $("#formulario_subir").validate({
     rules: {
         nombre: {
             required: true,
-            minlength: 2
+            minlength: 2,
+            maxlength: 30
         },
         tipo_solicitud: {
             required: true
         },
         mensaje: {
             required: true,
-            minlength: 10
+            minlength: 10,
+            maxlength: 1000
         },
         fecha: {
             required: true,
@@ -110,7 +112,7 @@ $("#formulario_subir").validate({
     messages: {
         nombre: {
             required: "Por favor, escribe tu nombre.",
-            minlength: "El nombre debe tener al menos 2 caracteres."
+            minlength: "El nombre debe tener al menos 2 caracteres y maximo 30."
         },
         tipo_solicitud: {
             required: "Por favor, selecciona una opción."

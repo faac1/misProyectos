@@ -23,4 +23,5 @@ urlpatterns =[
     path('mujerrumana', views.mujerrumana, name='mujerrumana'),
     path('tejidohuaso', views.tejidohuaso, name='tejidohuaso'),
     path('tejidomapuche', views.tejidomapuche, name='tejidomapuche'),
+    path('crud', views.crud, name='crud')
 ]

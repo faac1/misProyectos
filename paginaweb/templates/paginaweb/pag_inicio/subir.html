@@ -69,7 +69,7 @@
 
         <div class="col-md-12 col-xs"></div>
         <h1 class="text-center text-white">Mensajes</h1>
-          <form id="formulario_subir" class="text-white">
+          <form action="subir" id="formulario_subir" class="text-white" method="POST">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo aquí"><br>
             <label for="tipo_solicitud">Tipo de solicitud:</label>
@@ -87,7 +87,7 @@
             <label for="fecha">Fecha</label>
             <input type="date" id="fecha" name="fecha"><br>
       
-            <label for="telefono">Teléfono (sin codigo de area):</label>
+            <label for="telefono">Teléfono (sin +56):</label>
             <input type="number" id="telefono" name="telefono"><br>
       
             <label>categorias :</label><br>
