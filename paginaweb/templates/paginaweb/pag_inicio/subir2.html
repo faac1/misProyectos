@@ -68,42 +68,49 @@
       
 
         <div class="col-md-12 col-xs">
-          <h1 class="text-center text-white">Mensajes</h1>
-          <form action="subir" id="formulario_subir" class="text-white" method="POST">
-            {% csrf_token %}
+          {% if subir%}
+            <h1 class="text-center text-white">Actualizar Mensaje</h1>
+            <form action="{% url 'subirUpdate' %}" id="formulario_subir" class="text-white" method="POST">
+              {% csrf_token %}
 
-            <pre class="mb-1">Nombre: <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo aquí"></pre>
-            <pre class="mb-1">Tipo Solicitud:
-              <select id="tipo_solicitud" name="tipo_solicitud">
-                {% for tipo in tipo_solicitud %}
-                  <option value="{{tipo.id_tipo_solicitud}}">{{tipo.tipo_solicitud}}</option>
-                {% endfor %}
-              </select>
-            </pre>
-            <pre class="mb-1">Mensaje:
-            <textarea name="mensaje" id="mensaje" cols="45" rows="15"></textarea>
-            </pre>
-      
-            <pre class="mb-1">Fecha:   <input type="date" id="fecha" name="fecha"></pre> 
-            
-            <pre>Teléfono (sin +56):  <input type="number" id="telefono" name="telefono"></pre>
-      
-            <pre class="mb-2">Categorias: </pre>
-            <pre class="mb-1"><input type="checkbox" id="escultura" name="categorias" value="escultura">Escultura</pre>
-            <pre class="mb-1"><input type="checkbox" id="pinturas" name="categorias" value="pinturas">Pinturas</pre>
-            <pre class="mb-1"><input type="checkbox" id="tejidos" name="categorias" value="tejidos">Tejidos</pre>
-            <pre class="mb-1"><input type="checkbox" id="orfebrería" name="categorias" value="orfebrería">Orfebrería</pre>
-            <pre class="mb-3"><input type="checkbox" id="Otro" name="categorias" value="Otro">Otro</pre>
-      
-            <pre class="mb-1">Seleccionar:</pre>
-            <pre class="mb-1"><input type="radio" id="venta" name="seleccionar" value="venta">Venta</pre>
-            <pre class="mb-1"><input type="radio" id="intercambio" name="seleccionar" value="intercambio">Intercambio</pre>
-            <pre class="mb-1"><input type="radio" id="donacion" name="seleccionar" value="donacion">Donacion</pre>
-            <pre class="mb-1"><input type="radio" id="otro" name="seleccionar" value="otro">Otro</pre>
-            
-            <button type="submit" name="enviar" id="enviar">Enviar</button>
+              <pre class="mb-1">Nombre: <input type="text" id="nombre" name="nombre" value="{{subir.nombre}}" placeholder="Escribe tu nombre completo aquí"></pre>
+              <pre class="mb-1">Tipo Solicitud:
+                <select id="tipo_solicitud" name="tipo_solicitud">
 
-          </form>
+                  {% for tipo in tipo_solicitud %}
+                    {% if tipo.tipo_solicitud == subir.id_tipo_solicitud.tipo_solicitud %}
+                      <option value="{{tipo.id_tipo_solicitud}}" selected>{{tipo.tipo_solicitud}}</option>
+                    {% else %}
+                      <option value="{{tipo.id_tipo_solicitud}}">{{tipo.tipo_solicitud}}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </pre>
+              <pre class="mb-1">Mensaje:
+              <textarea name="mensaje" id="mensaje" value="{{subir.mensaje}}" cols="45" rows="15"></textarea>
+              </pre>
+        
+              <pre class="mb-1">Fecha:   <input type="date" id="fecha" name="fecha" value="{{subir.fecha}}"></pre> 
+              
+              <pre>Teléfono (sin +56):  <input type="number" id="telefono" name="telefono" value="{{subir.telefono}}"></pre>
+        
+              <pre class="mb-2">Categorias: </pre>
+              <pre class="mb-1"><input type="checkbox" id="escultura" name="categorias" value="{{subir.categorias}}">Escultura</pre>
+              <pre class="mb-1"><input type="checkbox" id="pinturas" name="categorias" value="{{subir.categorias}}">Pinturas</pre>
+              <pre class="mb-1"><input type="checkbox" id="tejidos" name="categorias" value="{{subir.categorias}}">Tejidos</pre>
+              <pre class="mb-1"><input type="checkbox" id="orfebrería" name="categorias" value="{{subir.categorias}}">Orfebrería</pre>
+              <pre class="mb-3"><input type="checkbox" id="Otro" name="categorias" value="{{subir.categorias}}">Otro</pre>
+        
+              <pre class="mb-1">Seleccionar:</pre>
+              <pre class="mb-1"><input type="radio" id="venta" name="seleccionar" value="{{subir.seleccionar}}">Venta</pre>
+              <pre class="mb-1"><input type="radio" id="intercambio" name="seleccionar" value="{{subir.seleccionar}}">Intercambio</pre>
+              <pre class="mb-1"><input type="radio" id="donacion" name="seleccionar" value="{{subir.seleccionar}}">Donacion</pre>
+              <pre class="mb-1"><input type="radio" id="otro" name="seleccionar" value="{{subir.seleccionar}}">Otro</pre>
+              
+              <button type="submit" name="actualizar" id="actualizar">Actualizar</button>
+            </form>
+          {% endif %}
+
           <a href="{% url 'crud' %}">Al CRUD</a>
           <div id="idMensajes">
             {%if mensaje %}

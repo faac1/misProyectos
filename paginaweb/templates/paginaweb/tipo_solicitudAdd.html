@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario Tipo de solicitud</h1>
+
+    <form action="">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit" value="Agregar">Agregar</button>
+    </form>
+    <br>
+    <div id="idMensajes">
+        {% if mensaje %}
+        {{mensaje}}
+        {% endif %}
+    </div>
+
+    <a href="{% url 'crud_tipo_solicitud' %}">volver</a>
+
+</body>
+</html>

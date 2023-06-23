@@ -146,3 +146,12 @@ $("#enviar").click(function(){
 }
 
 })
+
+
+$("#actualizar").click(function(){
+  if($("#formulario_subir").valid()){
+    alert("mensaje actualizado");
+    window.location.href = "index2"
+}
+
+})

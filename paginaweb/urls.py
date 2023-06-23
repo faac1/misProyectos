@@ -23,5 +23,14 @@ urlpatterns =[
     path('mujerrumana', views.mujerrumana, name='mujerrumana'),
     path('tejidohuaso', views.tejidohuaso, name='tejidohuaso'),
     path('tejidomapuche', views.tejidomapuche, name='tejidomapuche'),
-    path('crud', views.crud, name='crud')
+    
+    path('crud', views.crud, name='crud'),
+    path('borrarmens/<str:pk>', views.borrarmens, name='borrarmens'),
+    path('editarmens/<str:pk>', views.editarmens, name='editarmens'),
+    path('subirUpdate', views.subirUpdate, name='subirUpdate'),
+    path('subir2', views.subir2, name='subir2'),
+
+    path('crud_tipo_solicitud', views.crud_tipo_solicitud, name='crud_tipo_solicitud'),
+    path('tipo_solicitudAdd', views.tipo_solicitudAdd, name='tipo_solicitudAdd'),
+
 ]

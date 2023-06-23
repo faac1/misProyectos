@@ -8,11 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Editar Mensajes</h1>
+    <h1>Editar tipo solicitud</h1>
     <br>
 
     <button type="button">
-        <a href="{% url 'subir'%}"> Agregar</a>
+        <a href="{% url 'tipo_solicitudAdd'%}"> Agregar</a>
     </button>
 
     <div id="idMensajes">
@@ -22,23 +22,18 @@
     </div>
 
     <table>
-        {% if subir %}
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Tipo solicitud</th>
-        <th>Eliminar</th>
-        <th>Modificar</th>
-        {% for x in subir %}
-            <tr>
-                <td>{{x.id_subir}}
-                <td>{{x.nombre}}
-                <td>{{x.id_tipo_solicitud}}
-                <td><a href="{% url 'borrarmens' pk=x.id_subir %}">Eliminar</a>
-                <td><a href="{% url 'editarmens' pk=x.id_subir %}">Modificar</a>
- 
-            </tr>
-        {% endfor %}
-    {% endif %}        
+        {% if tipo_solicitud %}
+            <th>Tipo solicitud</th>
+            <th>Eliminar</th>
+            <th>Modificar</th>
+            {% for x in tipo_solicitud %}
+                <tr>
+                    <td>{{x.tipo_solicitud}}
+
+    
+                </tr>
+            {% endfor %}
+        {% endif %}        
     </table>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
